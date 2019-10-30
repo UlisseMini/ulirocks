@@ -1,7 +1,7 @@
 ---
 title: "Mastering Airstrike with PPO2"
 date: 2019-10-03T18:27:26-04:00
-draft: false
+draft: true
 ---
 
 I did it! the first game I've beaten with RL! (using a library)
