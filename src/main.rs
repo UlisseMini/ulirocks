@@ -1,3 +1,7 @@
+use rocket_contrib::serve::StaticFiles;
+
 fn main() {
-    println!("Hello, world!");
+    rocket::ignite()
+        .mount("/", StaticFiles::from("public"))
+        .launch();
 }
