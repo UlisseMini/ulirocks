@@ -8,14 +8,6 @@ jobs:
       - checkout
 
       - run:
-          name: Update rust nightly
-          command: rustup update nightly
-
-      - run:
-          name: Switch to rust nightly
-          command: rustup default nightly
-
-      - run:
           name: Test
           command: cargo test
 
