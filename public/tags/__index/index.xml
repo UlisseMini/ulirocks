@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>__index on Uli&#39;s blog</title>
-    <link>https://ulissemini.github.io/tags/__index/</link>
+    <link>https://uli-rocks.herokuapp.com/tags/__index/</link>
     <description>Recent content in __index on Uli&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Wed, 14 Aug 2019 19:47:59 -0400</lastBuildDate>
     
-	<atom:link href="https://ulissemini.github.io/tags/__index/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://uli-rocks.herokuapp.com/tags/__index/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>__index horror</title>
-      <link>https://ulissemini.github.io/posts/index_horror/</link>
+      <link>https://uli-rocks.herokuapp.com/posts/index_horror/</link>
       <pubDate>Wed, 14 Aug 2019 19:47:59 -0400</pubDate>
       
-      <guid>https://ulissemini.github.io/posts/index_horror/</guid>
+      <guid>https://uli-rocks.herokuapp.com/posts/index_horror/</guid>
       <description>The problem Lua is a great programming language, very nice for modding games and super simple.
 lua has a feature called metatables they are super useful, this post talks about the metatable event __index
 the __index metatable event allows you to do something special when a key is not found in a table, for example here is how it can be used to look in another table if a key is not found</description>
