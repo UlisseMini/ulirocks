@@ -8,12 +8,12 @@ jobs:
       - checkout
 
       - run:
-        name: Update rust nightly
-        command: rustup update nightly
+          name: Update rust nightly
+          command: rustup update nightly
 
       - run:
-        name: Switch to rust nightly
-        command: rustup default nightly
+          name: Switch to rust nightly
+          command: rustup default nightly
 
       - run:
           name: Test
