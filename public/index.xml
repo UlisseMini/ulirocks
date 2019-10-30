@@ -7,24 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 03 Oct 2019 18:27:26 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2019 19:47:59 -0400</lastBuildDate>
     
 	<atom:link href="https://uli-rocks.herokuapp.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Mastering Airstrike with PPO2</title>
-      <link>https://uli-rocks.herokuapp.com/posts/mastering-airstrike/</link>
-      <pubDate>Thu, 03 Oct 2019 18:27:26 -0400</pubDate>
-      
-      <guid>https://uli-rocks.herokuapp.com/posts/mastering-airstrike/</guid>
-      <description>I did it! the first game I&amp;rsquo;ve beaten with RL! (using a library)
-I&amp;rsquo;m going to talk through my progress on this problem over around a week and go over everything I tried.
-Attempt 1 Just using the pure PPO2 example from stable_baselines and plugging in the airstrike env
-Ran it overnight on my PC and when I got up&amp;hellip;
-IT WAS SHIT
-It hardly improved at all, looking at the reward graph it was crazy!</description>
-    </item>
     
     <item>
       <title>__index horror</title>
