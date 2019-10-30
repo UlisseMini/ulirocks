@@ -1,0 +1,152 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Uli&#39;s blog</title>
+		<link>https://ulissemini.github.io/posts/</link>
+		<description>Recent content in Posts on Uli&#39;s blog</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Wed, 14 Aug 2019 19:47:59 -0400</lastBuildDate>
+		<atom:link href="https://ulissemini.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>__index horror</title>
+			<link>https://ulissemini.github.io/posts/index_horror/</link>
+			<pubDate>Wed, 14 Aug 2019 19:47:59 -0400</pubDate>
+			
+			<guid>https://ulissemini.github.io/posts/index_horror/</guid>
+			<description>The problem Lua is a great programming language, very nice for modding games and super simple.
+lua has a feature called metatables they are super useful, this post talks about the metatable event __index
+the __index metatable event allows you to do something special when a key is not found in a table, for example here is how it can be used to look in another table if a key is not found</description>
+			<content type="html"><![CDATA[
+
+<h1 id="the-problem">The problem</h1>
+
+<p><a href="https://www.lua.org/">Lua</a> is a great programming language, very nice for modding games and super simple.</p>
+
+<p>lua has a feature called <a href="https://www.lua.org/pil/13.html">metatables</a> they are super useful, this post talks about the metatable event <code>__index</code></p>
+
+<p>the <code>__index</code> metatable event allows you to do something special when a key is not found in a table, for example here is how it can be used to look in another table if a key is not found</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">backup</span>  <span class="o">=</span> <span class="p">{</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">20</span><span class="p">}</span>
+<span class="n">myTable</span> <span class="o">=</span> <span class="p">{</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">}</span>
+
+<span class="n">setmetatable</span><span class="p">(</span><span class="n">myTable</span><span class="p">,</span> <span class="p">{</span> <span class="n">__index</span> <span class="o">=</span> <span class="n">backup</span> <span class="p">})</span>
+
+<span class="n">print</span><span class="p">(</span><span class="n">myTable.foo</span><span class="p">)</span> <span class="c1">-- 10</span>
+<span class="n">print</span><span class="p">(</span><span class="n">myTable.bar</span><span class="p">)</span> <span class="c1">-- 20</span></code></pre></div>
+<p>this is great, now lets look at a what happened to me.</p>
+
+<p>to set the scene, I was mocking an API so I could test that my library was calling the right functions.
+This library was a wrapper around the api to provide additional functionality, this example is stupid but the real project can be found <a href="https://gitlab.com/0u/coords">here</a></p>
+
+<p>Here&rsquo;s a simplified version of the mocked version of an api</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1">-- record api calls in here so that</span>
+<span class="c1">-- i can assert the right calls are made in tests.</span>
+<span class="n">api.calls</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">foo</span><span class="p">()</span>
+  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;foo!&#39;</span><span class="p">)</span>
+  <span class="n">table.insert</span><span class="p">(</span><span class="n">api.calls</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">bar</span><span class="p">()</span>
+  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;bar!&#39;</span><span class="p">)</span>
+  <span class="n">table.insert</span><span class="p">(</span><span class="n">api.calls</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span></code></pre></div>
+<p>Now for our library (adding some great functionality!)</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">function</span> <span class="nc">lib</span><span class="p">.</span><span class="nf">foobar</span><span class="p">()</span>
+  <span class="n">api.foo</span><span class="p">()</span>
+  <span class="n">api.bar</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">lib</span><span class="p">.</span><span class="nf">barfoo</span><span class="p">()</span>
+  <span class="n">api.bar</span><span class="p">()</span>
+  <span class="n">api.foo</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="c1">-- we want to be backwards compatible with the old API so if a function is not</span>
+<span class="c1">-- found then look in the api table for it.</span>
+<span class="kr">return</span> <span class="n">setmetatable</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span> <span class="p">{</span> <span class="n">__index</span> <span class="o">=</span> <span class="n">api</span> <span class="p">})</span></code></pre></div>
+<p>Now for our library tests</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;lib&#39;</span><span class="p">)</span>
+
+<span class="c1">-- test the foobar function</span>
+<span class="n">lib.foobar</span><span class="p">()</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lib.calls</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lib.calls</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+<span class="c1">-- clear lib.calls then test the barfoo function</span>
+<span class="n">lib.calls</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">lib.barfoo</span><span class="p">()</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lib.calls</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">lib.calls</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span></code></pre></div>
+<p>If you run this you&rsquo;ll get</p>
+
+<pre><code>foo!
+bar!
+bar!
+foo!
+lua: lib_test.lua:11: assertion failed!
+stack traceback:
+        [C]: in function 'assert'
+        lib_test.lua:11: in main chunk
+        [C]: in ?
+</code></pre>
+
+<p>What happened?!? we can see that the functions are called in the right order from the output.</p>
+
+<h2 id="the-bug">The bug</h2>
+
+<p>While <em>reading</em> <code>lib.calls</code> works fine, the key is not found then lua looks in the <code>__index</code> table, finds it and returns the value, it&rsquo;s just that <em>writing</em> works differently.</p>
+
+<p><em>writing</em> to a table in lua ignores <code>__index</code> and just adds the key to the uppermost table, so after the tests are ran the <code>lib</code> table looks like this (not exactly, the metatable is stored separately but this is a nice visualization)</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="p">{</span>
+  <span class="n">foobar</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="p">...</span> <span class="kr">end</span><span class="p">,</span>
+  <span class="n">barfoo</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="p">...</span> <span class="kr">end</span><span class="p">,</span>
+
+  <span class="n">calls</span>  <span class="o">=</span> <span class="p">{}</span>
+  <span class="n">__index</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">calls</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">},</span>
+    <span class="n">foo</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="p">...</span> <span class="kr">end</span><span class="p">,</span>
+    <span class="n">bar</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="p">...</span> <span class="kr">end</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">}</span></code></pre></div>
+<p>see! <code>calls</code> was added to the uppermost table instead of in <code>__index</code>, the mocked api adds to the <code>calls</code> table local to itself and we get this nasty bug.</p>
+
+<h2 id="the-solution">The solution</h2>
+
+<p>It&rsquo;s a bit ugly but we can force lua to write to the <code>__index</code> table like this</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">getmetatable</span><span class="p">(</span><span class="n">lib</span><span class="p">).</span><span class="n">__index.calls</span> <span class="o">=</span> <span class="p">{}</span></code></pre></div>
+<p>That&rsquo;s about it, I hope you learned something and I hope you never need to go through debugging this :D</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>First Post</title>
+			<link>https://ulissemini.github.io/posts/first-post/</link>
+			<pubDate>Sun, 14 Jul 2019 21:49:05 +0200</pubDate>
+			
+			<guid>https://ulissemini.github.io/posts/first-post/</guid>
+			<description>This is my first blog post! just gonna test some markdown.
+def my_first_function(): print(&amp;#34;i would never write a function this boring&amp;#34;) shell syntax highlighting?
+if [ &amp;#34;$*&amp;#34; = &amp;#34;i like cats&amp;#34; ]; then echo &amp;#34;You have good taste&amp;#34; else echo &amp;#34;Get out of my sight&amp;#34; fi</description>
+			<content type="html"><![CDATA[<p>This is my first blog post! just gonna test some markdown.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">my_first_function</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&#34;i would never write a function this boring&#34;</span><span class="p">)</span></code></pre></div>
+<p>shell syntax highlighting?</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$*</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;i like cats&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;You have good taste&#34;</span>
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Get out of my sight&#34;</span>
+<span class="k">fi</span></code></pre></div>]]></content>
+		</item>
+		
+	</channel>
+</rss>
