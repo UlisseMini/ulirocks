@@ -1,0 +1,11 @@
+{
+  "name": "ulirocks",
+  "description": "My personal website",
+  "repository": "https://github.com/UlisseMini/ulirocks",
+  "success_url": "/",
+  "keywords": ["rust", "rocket"],
+  "website": "https://uli.rocks",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/emk/heroku-buildpack-rust.git"
+  }
+}
