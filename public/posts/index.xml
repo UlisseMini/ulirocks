@@ -6,8 +6,32 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Wed, 30 Oct 2019 21:39:20 -0400</lastBuildDate>
+		<lastBuildDate>Wed, 30 Oct 2019 22:31:04 -0400</lastBuildDate>
 		<atom:link href="https://uli-rocks.herokuapp.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>If Programming Languages Were Moms</title>
+			<link>https://uli-rocks.herokuapp.com/posts/if-programming-languages-were-moms/</link>
+			<pubDate>Wed, 30 Oct 2019 22:31:04 -0400</pubDate>
+			
+			<guid>https://uli-rocks.herokuapp.com/posts/if-programming-languages-were-moms/</guid>
+			<description>This is clearly biased from the languages I like better, hopefully fun to read anyways.
+Rust Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she&amp;rsquo;ll let you do whatever you want.
+Haskell Is an overprotective parent, You might feel better about her rules if you had a PhD in math and studied category theory though.
+Python Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.</description>
+			<content type="html"><![CDATA[<p>This is clearly biased from the languages I like better, hopefully fun to read anyways.</p>
+
+<p><strong>Rust</strong> Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she&rsquo;ll let you do whatever you want.</p>
+
+<p><strong>Haskell</strong> Is an overprotective parent, You might feel better about her rules if you had a PhD in math and studied category theory though.</p>
+
+<p><strong>Python</strong> Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.</p>
+
+<p><strong>Javascript</strong> Is very distracted, Instead of answering directly, you must specify how she can reach you when she pleases. Since she can only do one thing at a time this leads to very awkward conversations.</p>
+
+<p>More are to come!, you can also send suggestions <a href="/about">here</a>.</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Nodejs Encryption</title>
