@@ -12,7 +12,7 @@ This is clearly biased from the languages I like better, hopefully fun to read a
 
 **Rust** Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she'll let you do whatever you want.
 
-**Haskell** Is an overprotective parent, You might feel better about her rules if you had a PhD in math and studied category theory though.
+**Haskell** Is an overprotective parent, You might understand her rules better if you had a PhD in math and studied category theory though.
 
 **Python** Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.
 
