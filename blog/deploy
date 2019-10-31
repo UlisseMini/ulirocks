@@ -21,5 +21,5 @@ if [ -n "$*" ]; then
 fi
 git commit -m "$msg"
 
-# Push source and build repos.
-git push heroku master
+# Push source, heroku will deploy once CI passes.
+git push
