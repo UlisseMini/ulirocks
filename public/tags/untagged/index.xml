@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>untagged on Uli&#39;s blog</title>
+    <link>https://uli-rocks.herokuapp.com/tags/untagged/</link>
+    <description>Recent content in untagged on Uli&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 30 Oct 2019 21:39:20 -0400</lastBuildDate>
+    
+	<atom:link href="https://uli-rocks.herokuapp.com/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nodejs Encryption</title>
+      <link>https://uli-rocks.herokuapp.com/posts/nodejs-encryption/</link>
+      <pubDate>Wed, 30 Oct 2019 21:39:20 -0400</pubDate>
+      
+      <guid>https://uli-rocks.herokuapp.com/posts/nodejs-encryption/</guid>
+      <description>I hate javascript But I&amp;rsquo;m using it to write a discord bot, for a few reasons (mostly the awesome discordjs api) I desided it was the easiest way to get my friends into programming via writing discord bots.
+So, I thought it would be cool to add encryption-decryption functionality to my bot.
+I&amp;rsquo;m a perfectionist so I wanted nothing less then aes256-gcm + a good KDF (I picked scrypt), Since I&amp;rsquo;m quite minimal, I desided to use the crypto package provided by node Instead of grabbing an insecure unmaintained package from npm.</description>
+    </item>
+    
+  </channel>
+</rss>

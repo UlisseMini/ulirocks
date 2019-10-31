@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://uli-rocks.herokuapp.com/posts/nodejs-encryption/</loc>
+    <lastmod>2019-10-30T21:39:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uli-rocks.herokuapp.com/posts/</loc>
+    <lastmod>2019-10-30T21:39:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uli-rocks.herokuapp.com/tags/</loc>
+    <lastmod>2019-10-30T21:39:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uli-rocks.herokuapp.com/</loc>
+    <lastmod>2019-10-30T21:39:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://uli-rocks.herokuapp.com/tags/untagged/</loc>
+    <lastmod>2019-10-30T21:39:20-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://uli-rocks.herokuapp.com/tags/__index/</loc>
     <lastmod>2019-08-14T19:47:59-04:00</lastmod>
   </url>
@@ -19,21 +44,6 @@
   
   <url>
     <loc>https://uli-rocks.herokuapp.com/tags/metatable/</loc>
-    <lastmod>2019-08-14T19:47:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://uli-rocks.herokuapp.com/posts/</loc>
-    <lastmod>2019-08-14T19:47:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://uli-rocks.herokuapp.com/tags/</loc>
-    <lastmod>2019-08-14T19:47:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://uli-rocks.herokuapp.com/</loc>
     <lastmod>2019-08-14T19:47:59-04:00</lastmod>
   </url>
   
