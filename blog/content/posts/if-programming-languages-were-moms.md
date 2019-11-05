@@ -14,8 +14,10 @@ This is clearly biased from the languages I like better, hopefully fun to read a
 
 **Haskell** Is an overprotective parent, You might understand her rules better if you had a PhD in math and studied category theory though.
 
-**Python** Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.
+**Python** Is a huge proponent of teamwork, often when you want to do something she will immediately find 5 experts in the topic, she can be quite slow though if you need to do something yourself.
 
-**Javascript** Is very distracted, Instead of answering directly, you must specify how she can reach you when she pleases. Since she can only do one thing at a time this leads to very awkward conversations.
+**Javascript** Only uses email, she hates speaking directly as then she can't deal with other messages (single threaded)
+
+**Go** Is an expert in multitasking, In stark contrast to javascript she often keeps multiple conversations going at the same time while cooking and sweeping.
 
 More are to come!, you can also send suggestions [here](/about).
