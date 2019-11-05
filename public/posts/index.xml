@@ -17,17 +17,19 @@
 			<guid>https://uli-rocks.herokuapp.com/posts/if-programming-languages-were-moms/</guid>
 			<description>This is clearly biased from the languages I like better, hopefully fun to read anyways.
 Rust Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she&amp;rsquo;ll let you do whatever you want.
-Haskell Is an overprotective parent, You might feel better about her rules if you had a PhD in math and studied category theory though.
-Python Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.</description>
+Haskell Is an overprotective parent, You might understand her rules better if you had a PhD in math and studied category theory though.
+Python Is a huge proponent of teamwork, often when you want to do something she will immediately find 5 experts in the topic, she can be quite slow though if you need to do something yourself.</description>
 			<content type="html"><![CDATA[<p>This is clearly biased from the languages I like better, hopefully fun to read anyways.</p>
 
 <p><strong>Rust</strong> Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she&rsquo;ll let you do whatever you want.</p>
 
-<p><strong>Haskell</strong> Is an overprotective parent, You might feel better about her rules if you had a PhD in math and studied category theory though.</p>
+<p><strong>Haskell</strong> Is an overprotective parent, You might understand her rules better if you had a PhD in math and studied category theory though.</p>
 
-<p><strong>Python</strong> Is a huge proponent of teamwork, often when you want to learn something she will just point out that there Is someone you know that can already do that, and you should ask them instead.</p>
+<p><strong>Python</strong> Is a huge proponent of teamwork, often when you want to do something she will immediately find 5 experts in the topic, she can be quite slow though if you need to do something yourself.</p>
 
-<p><strong>Javascript</strong> Is very distracted, Instead of answering directly, you must specify how she can reach you when she pleases. Since she can only do one thing at a time this leads to very awkward conversations.</p>
+<p><strong>Javascript</strong> Only uses email, she hates speaking directly as then she can&rsquo;t deal with other messages (single threaded)</p>
+
+<p><strong>Go</strong> Is an expert in multitasking, In stark contrast to javascript she often keeps multiple conversations going at the same time while cooking and sweeping.</p>
 
 <p>More are to come!, you can also send suggestions <a href="/about">here</a>.</p>
 ]]></content>
@@ -54,11 +56,11 @@ I&amp;rsquo;m a perfectionist so I wanted nothing less then aes256-gcm + a good 
 
 <p>Here Is the version I came up with after some iteration.</p>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">encrypt</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">passphrase</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="nx">salt</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">scryptSync</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">,</span> <span class="nx">salt</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">salt</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">scryptSync</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">,</span> <span class="nx">salt</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
 
-  <span class="k">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">encrypter</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createCipheriv</span><span class="p">(</span><span class="s1">&#39;aes-256-gcm&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">iv</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">encrypter</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createCipheriv</span><span class="p">(</span><span class="s1">&#39;aes-256-gcm&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">iv</span><span class="p">)</span>
 
   <span class="kd">let</span> <span class="nx">encrypted</span> <span class="o">=</span> <span class="nx">encrypter</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
   <span class="nx">encrypted</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">([</span><span class="nx">encrypted</span><span class="p">,</span> <span class="nx">encrypter</span><span class="p">.</span><span class="kr">final</span><span class="p">()])</span>
@@ -70,14 +72,14 @@ I&amp;rsquo;m a perfectionist so I wanted nothing less then aes256-gcm + a good 
   <span class="c1">// First we need to get iv, authtag, salt, ciphertext from base64.
 </span><span class="c1"></span>  <span class="nx">text</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="s1">&#39;base64&#39;</span><span class="p">)</span>
 
-  <span class="k">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">salt</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">ciphertext</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">salt</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">ciphertext</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
 
   <span class="c1">// Now we preform the decryption.
-</span><span class="c1"></span>  <span class="k">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">scryptSync</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">,</span> <span class="nx">salt</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-  <span class="k">const</span> <span class="nx">decrypter</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createDecipheriv</span><span class="p">(</span><span class="s1">&#39;aes-256-gcm&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">iv</span><span class="p">)</span>
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">scryptSync</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">,</span> <span class="nx">salt</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">decrypter</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createDecipheriv</span><span class="p">(</span><span class="s1">&#39;aes-256-gcm&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">iv</span><span class="p">)</span>
   <span class="nx">decrypter</span><span class="p">.</span><span class="nx">setAuthTag</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span>
   <span class="kd">let</span> <span class="nx">decrypted</span> <span class="o">=</span> <span class="nx">decrypter</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">ciphertext</span><span class="p">)</span>
   <span class="nx">decrypted</span> <span class="o">+=</span> <span class="nx">decrypter</span><span class="p">.</span><span class="kr">final</span><span class="p">()</span>
