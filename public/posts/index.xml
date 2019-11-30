@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Uli&#39;s blog</title>
-		<link>http://uli.rocks/posts/</link>
+		<link>/posts/</link>
 		<description>Recent content in Posts on Uli&#39;s blog</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
 		<lastBuildDate>Wed, 30 Oct 2019 22:31:04 -0400</lastBuildDate>
-		<atom:link href="http://uli.rocks/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>If Programming Languages Were Moms</title>
-			<link>http://uli.rocks/posts/if-programming-languages-were-moms/</link>
+			<link>/posts/if-programming-languages-were-moms/</link>
 			<pubDate>Wed, 30 Oct 2019 22:31:04 -0400</pubDate>
 			
-			<guid>http://uli.rocks/posts/if-programming-languages-were-moms/</guid>
+			<guid>/posts/if-programming-languages-were-moms/</guid>
 			<description>This is clearly biased from the languages I like better, hopefully fun to read anyways.
 Rust Is kindly and protective. A bit overreaching at times but you know its for your own good, and if you beg her she&#39;ll let you do whatever you want.
 Haskell Is an overprotective parent, You might understand her rules better if you had a PhD in math and studied category theory though.
@@ -31,10 +31,10 @@ Python Is a huge proponent of teamwork, often when you want to do something she 
 		
 		<item>
 			<title>Nodejs Encryption</title>
-			<link>http://uli.rocks/posts/nodejs-encryption/</link>
+			<link>/posts/nodejs-encryption/</link>
 			<pubDate>Wed, 30 Oct 2019 21:39:20 -0400</pubDate>
 			
-			<guid>http://uli.rocks/posts/nodejs-encryption/</guid>
+			<guid>/posts/nodejs-encryption/</guid>
 			<description>I hate javascript But I&#39;m using it to write a discord bot, for a few reasons (mostly the awesome discordjs api) I desided it was the easiest way to get my friends into programming via writing discord bots.
 So, I thought it would be cool to add encryption-decryption functionality to my bot.
 I&#39;m a perfectionist so I wanted nothing less then aes256-gcm + a good KDF (I picked scrypt), Since I&#39;m quite minimal, I desided to use the crypto package provided by node Instead of grabbing an insecure unmaintained package from npm.</description>
@@ -91,10 +91,10 @@ I&#39;m a perfectionist so I wanted nothing less then aes256-gcm + a good KDF (I
 		
 		<item>
 			<title>__index horror</title>
-			<link>http://uli.rocks/posts/index_horror/</link>
+			<link>/posts/index_horror/</link>
 			<pubDate>Wed, 14 Aug 2019 19:47:59 -0400</pubDate>
 			
-			<guid>http://uli.rocks/posts/index_horror/</guid>
+			<guid>/posts/index_horror/</guid>
 			<description>The problem Lua is a great programming language, very nice for modding games and super simple.
 lua has a feature called metatables they are super useful, this post talks about the metatable event __index
 the __index metatable event allows you to do something special when a key is not found in a table, for example here is how it can be used to look in another table if a key is not found</description>
@@ -195,10 +195,10 @@ stack traceback:
 		
 		<item>
 			<title>First Post</title>
-			<link>http://uli.rocks/posts/first-post/</link>
+			<link>/posts/first-post/</link>
 			<pubDate>Sun, 14 Jul 2019 21:49:05 +0200</pubDate>
 			
-			<guid>http://uli.rocks/posts/first-post/</guid>
+			<guid>/posts/first-post/</guid>
 			<description>This is my first blog post! just gonna test some markdown.
 def my_first_function(): print(&amp;#34;i would never write a function this boring&amp;#34;) shell syntax highlighting?
 if [ &amp;#34;$*&amp;#34; = &amp;#34;i like cats&amp;#34; ]; then echo &amp;#34;You have good taste&amp;#34; else echo &amp;#34;Get out of my sight&amp;#34; fi </description>
