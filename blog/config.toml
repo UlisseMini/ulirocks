@@ -1,5 +1,5 @@
 # vi: set ts=2 sw=2 et
-baseURL = "https://uli-rocks.herokuapp.com"
+baseURL = "/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Uli's blog"
