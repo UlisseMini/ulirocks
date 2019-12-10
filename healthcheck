@@ -1,0 +1,42 @@
+#!/bin/sh
+
+health_checks() {
+	if ! pidof ulirocks >/dev/null; then
+		echo "$(date) pidof ulirocks failed with code $?"
+		return 1
+	fi
+
+	if ! curl -sS localhost >/dev/null; then
+		echo "$(date) curl localhost failed with code $?"
+		return 1
+	fi
+
+	if ! curl -sS uli.rocks >/dev/null; then
+		echo "$(date) curl uli.rocks failed with code $?"
+		return 1
+	fi
+}
+
+restart_website() {
+	sleep_time=5
+	while true; do
+		echo "$(date) Health checks failed!, Restarting web server..."
+		systemctl restart ulirocks
+		sleep "$sleep_time"
+		sleep_time=$((sleep_time * 2))
+
+		if health_checks; then
+			break
+		else
+			echo "$(date) Failed to restart website, retrying in $sleep_time seconds..."
+		fi
+	done
+}
+
+while true; do
+	if ! health_checks; then
+		restart_website
+	fi
+
+	sleep 60
+done
