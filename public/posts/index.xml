@@ -6,8 +6,43 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Wed, 30 Oct 2019 22:31:04 -0400</lastBuildDate>
+		<lastBuildDate>Tue, 07 Jan 2020 14:40:53 -0500</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Cool Programing Languages</title>
+			<link>/posts/cool-programing-languages/</link>
+			<pubDate>Tue, 07 Jan 2020 14:40:53 -0500</pubDate>
+			
+			<guid>/posts/cool-programing-languages/</guid>
+			<description>I felt like writing a list of interesting programing languages for people who care. NOTE: Interesting does not mean &amp;ldquo;better then everything else at everything&amp;rdquo;, also many popular programming languages get the job done but are not on this list (like python) because they are already established.
+Here&#39;s the list in no perticular order, also won&#39;t be commenting on them much since their website can usually sell it quite well.</description>
+			<content type="html"><![CDATA[<p>I felt like writing a list of interesting programing languages for people who care.
+NOTE: Interesting does not mean &ldquo;better then everything else at everything&rdquo;, also many popular programming languages get the job done but are not on this list (like python) because they are already established.</p>
+<p>Here's the list in no perticular order, also won't be commenting on them much since their website can usually sell it quite well.</p>
+<ul>
+<li>
+<p><a href="https://elm-lang.org">Elm</a> Compiles to JS no runtime exceptions, pure FP</p>
+</li>
+<li>
+<p><a href="https://www.rust-lang.org/">Rust</a> Memory safe, no race conditions low level programming</p>
+</li>
+<li>
+<p><a href="https://julialang.org/">Julia</a> Fast python competitor, many cool features</p>
+</li>
+<li>
+<p><a href="https://elixir-lang.org/">Elixir</a> Highly reliable systems, concurrency</p>
+</li>
+<li>
+<p><a href="https://www.haskell.org/">Haskell</a> pure FP, TYPES TYPES TYPES!</p>
+</li>
+<li>
+<p><a href="https://racket-lang.org/">Racket</a> Amazing metaprogramming capibilities, UI, Learning.</p>
+</li>
+</ul>
+<p>If you've got suggestions send them to <code>uli#4334</code> on discord or <code>ulisse.mini@gmail.com</code> by email, I love checking out languages :)</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>If Programming Languages Were Moms</title>
